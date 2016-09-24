@@ -140,6 +140,13 @@
     
     <!-- HTML5 Speech Recognition API -->
     <script>
+    
+    
+    window.setInterval(function(){
+    startDictation(); /// call your function here
+    }, 5000);
+
+
     function startDictation() {
  
         if (window.hasOwnProperty('webkitSpeechRecognition')) {
