@@ -67,7 +67,7 @@
 
 </head>
 
-<body>
+<body onLoad="startDictation()">
 
     <!-- Navigation -->
     <nav class="navbar nanavbar-static-top" role="navigation">
@@ -113,7 +113,7 @@
                 <center>
                 <form id="labnol" method="post" action="http://iot.buyoldenbooks.com/update2.php">
                 <div class="speech">
-                <input type="text" name="status" id="transcript" placeholder="Give command..." />
+                <input type="text" name="status" id="transcript" placeholder="Give command..." autofocus/>
                 <img onclick="startDictation()" src="img/speech.gif" />
                 </div>
                 </form>
