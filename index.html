@@ -25,8 +25,8 @@
     <![endif]-->
 
     <style>
-    .login-container {
-        width: 40%;
+    .main-container {
+        width: 60%;
         margin-top: 80px;
         border: 1px solid #ccc;
         padding: 30px;
@@ -34,7 +34,7 @@
     }
     
     @media screen and (max-width: 760px) {
-        .login-container {
+        .main-container {
             width: 80%;
             padding: 10px;
         }
@@ -48,37 +48,81 @@
         padding: 10px 20px;
         text-align: center;
     }
+
+
+    /****** LOGIN MODAL ******/
+    .loginmodal-container {
+    padding: 30px;
+    max-width: 450px;
+    background: #fafafa;
+    margin: 10% auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    }
     </style>
+    
 </head>
 
 <body>
 
     <!-- Page Content -->
-    <div class="container login-container">
+    <div class="container main-container">
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <img src="img/ice-brand.png" style="width:30%; margin-bottom: 10px;">
+
+                <a href="index.html">
+                <img src="img/ice-brand.png" style="width:25%; margin-bottom: 10px;">
+                </a>
+
                 <p><em>Internet Controlled Electronics: Your home controller in your pocket!</em></p>
                 <hr>
                 <br>
-                <form style="margin: 0 auto; width: 60%;">
-                <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" placeholder="you@chitkara.edu.in" autofocus>
-                </div>
-                <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="YourSecretPassword">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                </form>
                 
-                <div style="margin-top: 20px">
-                    <a href="#">Register</a> &nbsp;&bull;&nbsp; <a href="#">Forgot Password</a>
-                </div>
+                
+                <!-- DETAILS -->
+                <p>ICE (Internet Controlled Electronics) is an IoT project which aims to connect user to his appliances back at home via the Internet. With this smart system, you can get control of your home one click away.</p>
+                
+                <p>As more and more consumer connected devices hit the market, the connected home is becoming a reality. A recent report stated that today’s home has five or more connected devices. In the future that number may be as high as 50!</p>
 
+                <br>
+                <p style="font-family:Georgia, Serif;"><big><span class="glyphicon glyphicon-home"></span> &nbsp;<em>Certainly, there is no place like a connected home! </em></big></p>
+                
+                <br>
+                
+                <!-- LOGIN -->
+                <a href="#" data-toggle="modal" data-target="#login-modal"><button class="btn btn-info">Go!</button></a>
+
+                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog loginmodal-container">
+                    <form style="margin: 0 auto; width: 80%;">
+                    <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="you@chitkara.edu.in" autofocus>
+                    </div>
+                    <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="YourSecretPassword">
+                    </div>
+                                        
+                    <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                
+                    <div style="margin-top: 20px">
+                    <a href="#">Register</a> &nbsp;&bull;&nbsp; <a href="#">Forgot Password</a>
+                    </div>
+                </div>
+                </div>
             </div>
+            
+            
+                <!-- TEMP HARDLINK TO DEVICE CONTROLLER -->
+                <a href="controller.html">
+                <center>...</center>
+                </a>
+    
+    
         </div>
         <!-- /.row -->
 
@@ -88,9 +132,9 @@
     
     <!-- footer -->
     <footer>
-    &copy; ICE Project 2016 &nbsp;&bull;&nbsp; 
-    Created by Ashwani and Anirudh &nbsp;&bull;&nbsp; 
-    <img src="img/ice-brand.png" style="height:20px; vertical-align: medium;">
+        &copy; ICE Project 2016 &nbsp;&bull;&nbsp; 
+        Created by Ashwani and Anirudh &nbsp;&bull;&nbsp;     
+        <img src="img/ice-brand.png" style="height:20px;">
     </footer>
     <!-- /.footer -->
 
