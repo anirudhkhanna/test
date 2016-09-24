@@ -26,108 +26,106 @@
     
     
     <style>
-    .main-container {
-        width: 60%;
-        margin-top: 80px;
-        border: 1px solid #ccc;
-        padding: 30px;
-        border-radius: 10px;
+    body {
+        padding-top: 20px;
     }
-    
-    @media screen and (max-width: 760px) {
-        .main-container {
-            width: 80%;
-            padding: 10px;
-        }        
-    }
-    
-    footer {
-        display: block;
-        position: relative;
-        width: 100%;
-        margin-top: 20px;
-        padding: 10px 20px;
-        text-align: center;
-    }
-    
-    
-    .speech {border-radius: 10px; border: 1px solid #DDD; max-width: 400px; padding: 0; margin: 0}
-    .speech input[type="text"] {border-width:0px; outline: none; width: 255px; display: inline-block; height: 40px;}
-    .speech img {float: right; width: 40px }
-    
-    @media screen and (max-width: 400px) {
-        .speech img {display: none;}
-        
-        .speech input[type="text"] {
-            max-width: 100px;
-        }
-    }
-
     </style>
 
 </head>
 
-<body onLoad="startDictation()">
+<body onLoad="setDictationStatus()">
+    
+    <!-- /. Dynamic Tabs Nav -->
+    <ul class="nav nav-tabs">
+        <a style="float:left; padding:0px 30px; margin-top:5px; margin-left:40px;" href="index.html"><img src="img/ice-logo.png" height="30px;"></a>
+        <li class="active"><a data-toggle="tab" href="#menu1"> <span class="glyphicon glyphicon-send"></span>&nbsp; Give Commands</a></li>
+        <li><a data-toggle="tab" href="#menu2"> <span class="glyphicon glyphicon-plus"></span>&nbsp; Add Commands</a></li>
+    </ul>
 
-    <!-- Navigation -->
-    <nav class="navbar nanavbar-static-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="img/ice-logo.png" height="35px;"></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li> <a href="#">About</a>    </li>
-                    <li> <a href="#">Login</a> </li>
-                    <li> <a href="#">Contact</a>  </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container main-container">
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
+    <!-- /. Dynamic Tabs content  -->
+    <div class="tab-content">
+        <!-- Menu 1 (Give Commands) -->
+        <div id="menu1" class="tab-pane fade in active">
+            
+            <!-- Menu 1 Page Content -->
+            <div class="container main-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
                 
                 <a href="index.html">
                 <img src="img/ice-brand.png" style="width:25%; margin-bottom: 10px;">
                 </a>
                 <p><em>Internet Controlled Electronics: Your home controller in your pocket!</em></p>
-                <hr>
-                <br>
+                <hr> <br>
             
-                
-                <!-- Search Form -->
+                <!-- Shoot Command Form -->
                 <center>
                 <form id="labnol" method="post" action="http://iot.buyoldenbooks.com/update2.php">
-                <div class="speech">
-                <input type="text" name="status" id="transcript" placeholder="Give command..." autofocus/>
-                <img onclick="startDictation()" src="img/speech.gif" />
+                    <div class="speech">
+                    <input type="text" name="status" id="transcript" placeholder="Give command..." autofocus/>
+                    <img onclick="startDictation()" src="img/speech.gif" />
+                    </div>
+                </form>
+                <br />
+                <label>
+                    <input type="checkbox" id="listeningcheckbox" onClick="setDictationStatus()"> Always listening &nbsp;<span class="glyphicon glyphicon-volume-up" id="listeningicon" style="color:#da3434;"></span></input>
+                </label>
+                </center>
+            
+                <br>
                 </div>
+            </div> <!-- /.row -->
+            </div> <!-- /.Menu 1 content container -->
+        
+        </div>
+        <!-- /. Menu 1 close -->
+        
+        
+        <!-- Menu 2 (Add Commands) -->
+        <div id="menu2" class="tab-pane fade">
+            
+            <!-- Menu 2 Page Content -->
+            <div class="container main-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                
+                <a href="index.html">
+                <img src="img/ice-brand.png" style="width:25%; margin-bottom: 10px;">
+                </a>
+                <p><em>Internet Controlled Electronics: Your home controller in your pocket!</em></p>
+                <hr> <br>
+            
+                <!-- Add Commands Form -->
+                <center>
+                <form method="post" action="">
+                    <div class="addcommand">
+                    <input type="text" placeholder="Add command..."/>
+                    </div>
+                    <br>
+                    <big><strong>Select devices: </strong></big>
+                    <input type="checkbox"> Device 1 &nbsp;</input>
+                    <input type="checkbox"> Device 2 &nbsp;</input>
+                    <input type="checkbox"> Device 3 &nbsp;</input>
+                    <input type="checkbox"> Device 4 &nbsp;</input>
+                    <br>
+                    <br>
+                    <input type="submit" class="btn btn-info"></input>
                 </form>
                 </center>
             
-            <br>
-            </div>
+                <br>
+                </div>
+            </div> <!-- /.row -->
+            </div> <!-- /.Menu 2 content container -->
+        
         </div>
-        <!-- /.row -->
-
+        <!-- /. Menu 2 close -->
+        
     </div>
-    <!-- /.container -->
+    <!-- /. Dynamic Tabs close -->
 
- 
+
+
     <!-- footer -->
     <footer>
         &copy; ICE Project 2016 &nbsp;&bull;&nbsp; 
@@ -141,12 +139,23 @@
     <!-- HTML5 Speech Recognition API -->
     <script>
     
+    var checkboxL = document.getElementById('listeningcheckbox');
+    
     
     window.setInterval(function(){
-    startDictation(); /// call your function here
+        setDictationStatus();
     }, 5000);
 
-
+    
+    function setDictationStatus() {
+        if(checkboxL.checked) {
+            startDictation(); // call dictation function here
+            $('#listeningicon').fadeIn();
+        }
+        else
+            $('#listeningicon').fadeOut();
+    }
+    
     function startDictation() {
  
         if (window.hasOwnProperty('webkitSpeechRecognition')) {
