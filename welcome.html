@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An Internet controlled home appliances automation system. By Ashwani Kumar and Anirudh Khanna">
+    <meta name="author" content="Anirudh, Ashwani">
+
+    <title>ICE - Internet Controlled Electronics</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <style>
+    body {
+        padding-top: 20px;
+    }
+    input[type="text"] {
+        border-radius: 10px;
+        border: 1px solid #DDD;
+        outline: none;
+        height: 40px;
+        padding: 0 20px;
+    }
+    </style>
+
+</head>
+
+<body onLoad="setDictationStatus()">
+    
+    <!-- /. Dynamic Tabs Nav -->
+    <ul class="nav nav-tabs">
+        <a style="float:left; padding:0px 30px; margin-top:5px; margin-left:40px;" href="index.html"><img src="img/ice-logo.png" height="30px;"></a>
+        <li class="active"><a data-toggle="tab" href="#menu1"> <span class="glyphicon glyphicon-user"></span>&nbsp; Join</a></li>
+        <li><a data-toggle="tab" href="#menu2"> <span class="glyphicon glyphicon-plus"></span>&nbsp; Add Home</a></li>
+        <li><a data-toggle="tab" href="#menu3"> <span class="glyphicon glyphicon-home"></span>&nbsp; Select Home</a></li>
+    </ul>
+
+    <!-- /. Dynamic Tabs content  -->
+    <div class="tab-content">
+        <!-- Menu 1 (Join) -->
+        <div id="menu1" class="tab-pane fade in active">
+            
+            <!-- Menu 1 Page Content -->
+            <div class="container main-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <h3>Join as a user</h3>
+                <hr>
+                <!-- User Joining Form -->
+                <center>
+                <form>
+                    <input type="text" name="uname" placeholder="User ID" autofocus/>
+                    <br> <br>
+                    <input type="submit" class="btn btn-info"/>
+                </form>
+                </center>            
+                <br>
+                </div>
+            </div> <!-- /.row -->
+            </div> <!-- /.Menu 1 content container -->
+        
+        </div>
+        <!-- /. Menu 1 close -->
+        
+        
+        <!-- Menu 2 (Add Home) -->
+        <div id="menu2" class="tab-pane fade">
+            
+            <!-- Menu 2 Page Content -->
+            <div class="container main-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <h3>Add a home</h3>
+                <hr>
+                <!-- Add Home Form -->
+                <center>
+                <form>
+                    <input type="text" name="homename" placeholder="Home ID" autofocus/>
+                    <br> <br>
+                    <input type="submit" class="btn btn-info"/>
+                </form>
+                </center>            
+                <br>
+                </div>
+            </div> <!-- /.row -->
+            </div> <!-- /.Menu 2 content container -->
+        
+        </div>
+        <!-- /. Menu 2 close -->
+        
+        
+        <!-- Menu 3 (Select a Home) -->
+        <div id="menu3" class="tab-pane fade">
+            
+            <!-- Menu 3 Page Content -->
+            <div class="container main-container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <h3>Select a home</h3>
+                <hr>
+                <!-- Homes List -->
+                <center>
+                    <div class="list-group">
+                    <a href="controller.html" class="list-group-item">Home 1</a>
+                    <a href="#" class="list-group-item">Home 2</a>
+                    <a href="#" class="list-group-item">Home 3</a>
+                    </div>
+                </center>            
+                <br>
+                </div>
+            </div> <!-- /.row -->
+            </div> <!-- /.Menu 3 content container -->
+        
+        </div>
+        <!-- /. Menu 3 close -->
+                
+    </div>
+    <!-- /. Dynamic Tabs close -->
+
+
+
+    <!-- footer -->
+    <footer>
+        &copy; ICE Project 2016 &nbsp;&bull;&nbsp; 
+        Created by Ashwani and Anirudh &nbsp;&bull;&nbsp;     
+        <img src="img/ice-brand.png" style="height:20px;">
+    </footer>
+    <!-- /.footer -->
+
+    
+    
+    <!-- HTML5 Speech Recognition API -->
+    <script>
+    
+    var checkboxL = document.getElementById('listeningcheckbox');
+    
+    
+    window.setInterval(function(){
+        setDictationStatus();
+    }, 5000);
+
+    
+    function setDictationStatus() {
+        if(checkboxL.checked) {
+            startDictation(); // call dictation function here
+            $('#listeningicon').fadeIn();
+        }
+        else
+            $('#listeningicon').fadeOut();
+    }
+    
+    function startDictation() {
+ 
+        if (window.hasOwnProperty('webkitSpeechRecognition')) {
+ 
+            var recognition = new webkitSpeechRecognition();
+ 
+            recognition.continuous = false;
+            recognition.interimResults = false;
+ 
+            recognition.lang = "en-US";
+            recognition.start();
+ 
+            recognition.onresult = function(e) {
+            document.getElementById('transcript').value = e.results[0][0].transcript;
+            recognition.stop();
+            document.getElementById('labnol').submit();
+            };
+ 
+            recognition.onerror = function(e) {
+                recognition.stop();
+           }
+ 
+        }
+    }
+    </script>
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
