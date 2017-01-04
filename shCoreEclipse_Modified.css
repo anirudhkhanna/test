@@ -49,7 +49,7 @@
   font-weight: normal !important;
   font-style: normal !important;
   font-size: 1em !important;
-  font-size: .9em !important;
+  font-size: .99em !important;
   /* New Font Size */
   min-height: inherit !important;
   min-height: auto !important;
@@ -228,10 +228,10 @@
   background-color: white !important;
 }
 .syntaxhighlighter .line.alt1 {
-  background: #fdfdfd url('https://1.bp.blogspot.com/-Z2wL6-HtHXk/V6c1gl9QoDI/AAAAAAAAAdk/MKpwn8O_ZFkmAj4d3KLY3s0iW2EYEWdLwCLcB/s640/line-bg.png') !important;
+  background: #F7FAFB  url('https://1.bp.blogspot.com/-jW5W6kovBac/V6a3uQmlX_I/AAAAAAAAAcY/7VQcZOFIIVwbnT5dainn5Mvs9ZJhI0LmgCLcB/s1600/line-bg.png') !important;
 }
 .syntaxhighlighter .line.alt2 {
-  background: #fdfdfd url('https://1.bp.blogspot.com/-Z2wL6-HtHXk/V6c1gl9QoDI/AAAAAAAAAdk/MKpwn8O_ZFkmAj4d3KLY3s0iW2EYEWdLwCLcB/s640/line-bg.png') !important;
+  background: #F7FAFB  url('https://1.bp.blogspot.com/-jW5W6kovBac/V6a3uQmlX_I/AAAAAAAAAcY/7VQcZOFIIVwbnT5dainn5Mvs9ZJhI0LmgCLcB/s1600/line-bg.png') !important;
 }
 .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
   background-color: #c3defe !important;
