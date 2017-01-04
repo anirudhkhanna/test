@@ -49,6 +49,8 @@
   font-weight: normal !important;
   font-style: normal !important;
   font-size: 1em !important;
+  font-size: .9em !important;
+  /* New Font Size */
   min-height: inherit !important;
   min-height: auto !important;
 }
